@@ -1,4 +1,4 @@
-const ethers = require('ethers');
+const { ethers } = require('hardhat');
 const path = require('path');
 require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
 
