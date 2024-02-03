@@ -68,6 +68,13 @@ async function main() {
     // Wait for receipt
     const receipt = await tx.wait();
     console.log('Transaction confirmed in block:', receipt.blockNumber);
+
+    dac = {
+        urls: dacUrls,
+        addresses: dacAddresses,
+        requiredAmountOfSignatures: requiredAmountOfSignatures,
+    }
+    fs.writeFileSync(path.join(__dirname, 'dac.json'), JSON.stringify(dac, null, 4));
 }
 
 main()
