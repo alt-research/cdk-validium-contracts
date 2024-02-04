@@ -49,9 +49,22 @@ async function main() {
     if (dataCommitteeContractAddress === undefined || dataCommitteeContractAddress === '') {
         throw new Error(`Missing DataCommitteeContract: ${deployOutput}`);
     }
-    const dacUrls = JSON.parse(process.env.DAC_URLS);
+    let dacUrls;
+    try {
+        dacUrls = JSON.parse(process.env.DAC_URLS);
+    } catch (e) {
+        console.log("invalid DAC_URLS", process.env.DAC_URLS)
+        throw e;
+    }
     console.log('DAC_URLS:', dacUrls);
-    const dacAddresses = JSON.parse(process.env.DAC_ADDRESSES);
+
+    let dacAddresses;
+    try {
+        dacAddresses = JSON.parse(process.env.DAC_ADDRESSES);
+    } catch (e) {
+        console.log("invalid DAC_ADDRESSES", process.env.DAC_URLS)
+        throw e;
+    }
     console.log('DAC_ADDRESSES:', dacAddresses);
     let addrsBytes = "0x";
     for (let i = 0; i < dacAddresses.length; i++) {
