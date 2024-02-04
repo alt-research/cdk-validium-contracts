@@ -23,6 +23,7 @@ async function main() {
         polygonZkEVMAddress: deployOutput.cdkValidiumAddress,
         maticTokenAddress: deployOutput.maticTokenAddress,
         polygonZkEVMGlobalExitRootAddress: deployOutput.polygonZkEVMGlobalExitRootAddress,
+        cdkDataCommitteeContract: deployOutput.cdkDataCommitteeContract,
     }
     console.log('l1Config set to:', genesis.l1Config);
     fs.writeFileSync(path.join(__dirname, 'genesis.json'), JSON.stringify(genesis, null, 4));
