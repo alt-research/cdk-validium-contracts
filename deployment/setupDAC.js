@@ -49,10 +49,10 @@ async function main() {
     if (dataCommitteeContractAddress === undefined || dataCommitteeContractAddress === '') {
         throw new Error(`Missing DataCommitteeContract: ${deployOutput}`);
     }
-    const dacUrls = JSON.parse(process.env.DAC_URL_LIST);
-    console.log('DAC_URL:', dacUrls);
-    const dacAddresses = JSON.parse(process.env.DAC_ADDRESS_LIST);
-    console.log('DAC_ADDRESS:', dacAddresses);
+    const dacUrls = JSON.parse(process.env.DAC_URLS);
+    console.log('DAC_URLS:', dacUrls);
+    const dacAddresses = JSON.parse(process.env.DAC_ADDRESSES);
+    console.log('DAC_ADDRESSES:', dacAddresses);
     let addrsBytes = "0x";
     for (let i = 0; i < dacAddresses.length; i++) {
         addrsBytes += dacAddresses[i].slice(2);
