@@ -1,5 +1,6 @@
 const { ethers } = require('hardhat');
 const path = require('path');
+const fs = require('fs');
 require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
 
 const deployOutput = require('./deploy_output.json');
@@ -49,11 +50,12 @@ async function main() {
     if (dataCommitteeContractAddress === undefined || dataCommitteeContractAddress === '') {
         throw new Error(`Missing DataCommitteeContract: ${deployOutput}`);
     }
+    console.log("cdkDataCommitteeContract:", dataCommitteeContractAddress)
     let dacUrls;
     try {
         dacUrls = JSON.parse(process.env.DAC_URLS);
     } catch (e) {
-        console.log("invalid DAC_URLS", process.env.DAC_URLS)
+        console.log("invalid DAC_URLS:", process.env.DAC_URLS)
         throw e;
     }
     console.log('DAC_URLS:', dacUrls);
@@ -62,7 +64,7 @@ async function main() {
     try {
         dacAddresses = JSON.parse(process.env.DAC_ADDRESSES);
     } catch (e) {
-        console.log("invalid DAC_ADDRESSES", process.env.DAC_URLS)
+        console.log("invalid DAC_ADDRESSES:", process.env.DAC_URLS)
         throw e;
     }
     console.log('DAC_ADDRESSES:', dacAddresses);
