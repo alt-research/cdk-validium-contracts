@@ -67,7 +67,7 @@ async function generateWallet(dir, name, password) {
         if (err) throw err;
     });
     const keystoreJson = await wallet.encrypt(password);
-    fs.writeFile(dir + "/" + name + ".keystore", keystoreJson, function (err) {
+    fs.writeFile(dir + "/keystore.json", keystoreJson, function (err) {
         if (err) throw err;
     })
     return wallet
