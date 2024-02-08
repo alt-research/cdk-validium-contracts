@@ -294,7 +294,7 @@ async function main() {
     const deployerInfo = await getAddressInfo(deployer.address);
     genesis.push({
         accountName: 'deployer',
-        balance: '0',
+        balance: '100000000000000000000000',
         nonce: deployerInfo.nonce.toString(),
         address: deployer.address,
     });
